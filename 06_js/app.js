@@ -10,4 +10,3 @@ let job = {
 
 let adultYears = age - 18
 alert(adultYears)
-alert(adultYears)
