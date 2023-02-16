@@ -8,5 +8,22 @@ let job = {
     salary: 50000
 };
 
-let adultYears = age - 18
-alert(adultYears)
+
+let adultYears;
+function calculateAdultYears(userAge) {
+    return userAge - 18
+}
+adultYears = calculateAdultYears(age)
+// alert(adultYears)
+console.log(adultYears);
+
+
+let person = {
+    name:'Max',
+    greet(){
+        console.log('Hello!');
+    }
+
+}
+
+person.greet()
