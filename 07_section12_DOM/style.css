@@ -1,0 +1,33 @@
+
+
+body{
+    background-color: rgb(85, 83, 83);
+}
+
+form{
+    width: 26rem;
+    margin: 0.5rem auto;
+    background-color: bisque;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+label{
+    display: block;
+}
+
+input{
+    width: 15rem;
+}
+
+p {
+    display: inline-block;
+}
+
+button{
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: rgb(255, 196, 125);
+    cursor: pointer;
+}
