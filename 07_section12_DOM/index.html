@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advanced JavaScript</title>
-    <script src="app.js" defer></script>
+    <script src="demo.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <!-- defer 아래 html가 실행될때까지 스크립트실행 지연 -->
   </head>
@@ -14,6 +14,20 @@
       <label for="inputText">Product Name</label>
         <input type="text" id="inputText" maxlength="20">
         <p>20/20</p>
+      <button>
+        Submit
+      </button>
+    </form>
+
+    <link rel="stylesheet" href="demo-style.css">
+    <form action="">
+      <div class="control">
+        <label for="product-name">Product Name</label>
+        <input type="text" id="product-name" name="product-name" maxlength="60" class="ddd">
+        <span id="charcount">
+          <span id="remaining-chars">60</span>/60
+        </span>
+      </div>
       <button>
         Submit
       </button>

@@ -1,22 +1,22 @@
+let PElement =  document.querySelector('p')
 
-inputElement = document.querySelector('input')
-pElement = document.querySelector('p')
-
-console.dir(inputElement)
-console.dir(pElement)
-
-
-inputElement.addEventListener('input', getInputLength)
-
-function getInputLength() {
-    let getLength = inputElement.value.length
-    let remainLength = 20 - getLength
-    pElement.textContent = remainLength.toString() + '/20'
-
-    if (remainLength <= 10){
-        inputElement.style.backgroundColor = 'bisque'
-    }else {
-        inputElement.style.backgroundColor = 'white'
-    }
-    
+function clickEvent () {
+    PElement.textContent = 'clicked'
+  
 }
+
+
+PElement.addEventListener('click', clickEvent)
+
+
+
+
+function getText (event) {
+    // console.log(inputElement.value)
+    // console.log(event.target.value)
+    // console.log(event.data )
+    console.log(event)
+}
+let inputElement = document.querySelector('input')
+
+inputElement.addEventListener('input',getText)
