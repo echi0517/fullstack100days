@@ -40,14 +40,20 @@ function productName(event) {
     remain = maxlength - getLength
     remainElement.textContent = remain
 
-    if (remain <= 10){
+    if (remain === 0) {
+        productNameElement.classList.add('error')
+        remainElement.classList.add('error')
+    } else if (remain <= 10){
         // productNameElement.className = 'warning'
         productNameElement.classList.add('warning')
         remainElement.classList.add('warning')
-    }else {
+        productNameElement.classList.remove('error')
+        remainElement.classList.remove('error')
+    } else {
         // productNameElement.className = ''
         productNameElement.classList.remove('warning')
         remainElement.classList.remove('warning')
+
     }
     
 }
