@@ -1,7 +1,10 @@
-const fs = require('fs')
 const path = require('path')
 const express = require('express')
-const uuid = require('uuid')
+
+
+
+const defaultRouter = require('./routes/default')
+const restaurantRouter = require('./routes/restaurants')
 
 const app = express()
 
@@ -13,74 +16,17 @@ app.use(express.static('public')) //css js 가져오기위한 미들웨어
 app.use(express.urlencoded({express: false})) // post 방식으로 들어오는 body에 데이터를 뿌리기 위해 필요
 
 
-app.get('/', function(req, res) {
-    // const htmlFilePath = path.join(__dirname,'views','index.html')
-    // res.sendFile(htmlFilePath)
-    res.render('index')
-})  
 
-app.get('/restaurants',function (req, res) {
-    // const htmlFilePath = path.join(__dirname,'views','restaurants.html')
-    // res.sendFile(htmlFilePath)
-    const filePath = path.join(__dirname,'data','restaurants.json')
-    const fileData = fs.readFileSync(filePath)
-    const storedRestaurants = JSON.parse(fileData)
-    
+app.use('/',defaultRouter) // 다른 라우터를 지정하여 가져올수 있게 처리
+app.use('/',restaurantRouter)
 
-    res.render('restaurants',{ numberOfRestaurants: storedRestaurants.length, restaurants: storedRestaurants })
+
+app.use(function(req, res) {            // 400 에러에 대한 처리
+    res.status(404).render('404')
 })
 
-app.get('/restaurants/:id',function(req,res) {
-    const restaurantId =  req.params.id
-    const filePath = path.join(__dirname,'data','restaurants.json')
-    const fileData = fs.readFileSync(filePath)
-    const storedRestaurants = JSON.parse(fileData)
-
-
-    for (const restaurant of  storedRestaurants) {
-        if (restaurant.id === restaurantId){
-            return res.render('restaurant-detail',{ restaurant: restaurant})
-        }
-    }   
-    res.render('404')
-
-})  
-
-app.get('/about',function (req, res) {
-    // const htmlFilePath = path.join(__dirname,'views','about.html')
-    // res.sendFile(htmlFilePath)
-    res.render('about')
-})
-
-app.get('/confirm',function (req, res) {
-    // const htmlFilePath = path.join(__dirname,'views','confirm.html')
-    // res.sendFile(htmlFilePath)
-    res.render('confirm')
-})
-
-app.post('/recommend',function (req, res) {
-    const restaurant =  req.body
-    restaurant.id = uuid.v4()
-
-    const filePath = path.join(__dirname,'data','restaurants.json')
-    const fileData = fs.readFileSync(filePath)
-    const storedRestaurants = JSON.parse(fileData)
-    storedRestaurants.push(restaurant)
-
-    fs.writeFileSync(filePath,JSON.stringify(storedRestaurants))
-    res.redirect('/confirm');
-})
-
-
-app.get('/recommend',function (req, res) {
-    // const htmlFilePath = path.join(__dirname,'views','recommend.html')
-    // res.sendFile(htmlFilePath)
-    res.render('recommend')
-})
-
-
-app.use(function(req, res) {
-    res.render('404')
+app.use(function(error, req, res, next) {            //500 에러 처리
+    res.status(500).render('500')
 })
 
 app.listen(3000)

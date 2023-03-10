@@ -1,18 +1,1 @@
-[
-    {
-        "id": "r1",
-        "name": "박수영",
-        "address": "서울시관악구",
-        "cuisine": "치킨",
-        "website": "https://naver.com",
-        "description": "아아아"
-    },
-    {
-        "name": "dddd",
-        "address": "asdsadf",
-        "cuisine": "chi",
-        "website": "https://daum.net",
-        "description": "asdfgh",
-        "id": "c6d23135-1002-4ace-b97a-fc384c2df577"
-    }
-]
+[{"id":"r1","name":"박수영","address":"서울시관악구","cuisine":"치킨","website":"https://naver.com","description":"아아아"},{"name":"dddd","address":"asdsadf","cuisine":"chi","website":"https://daum.net","description":"asdfgh","id":"c6d23135-1002-4ace-b97a-fc384c2df577"},{"name":"dddfg","address":"ggg22","cuisine":"car","website":"https://google.com","description":"테스트","id":"4ef2e7cd-1fb6-4f5e-9d6f-0530d3410c0d"}]
